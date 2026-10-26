@@ -10,3 +10,11 @@ html{scroll-padding-top:25px}button:focus-visible,a:focus-visible,input:focus-vi
 
 /* Wie zijn wij */
 .about-us{max-width:1180px;margin:72px auto;padding:0 24px;scroll-margin-top:100px}.about-image{border-radius:20px 20px 0 0;overflow:hidden;background:#e6e1d8}.about-image img{display:block;width:100%;height:auto;max-height:490px;object-fit:cover}.about-content{padding:34px 42px 42px;background:#fff9f2;border:1px solid #f0e6d8;border-top:0;border-radius:0 0 20px 20px}.about-content h2{font-size:clamp(30px,4vw,46px);margin:8px 0}.about-content h3{font-size:clamp(20px,2.5vw,27px);margin:0 0 22px}.about-content p{max-width:850px;line-height:1.75;margin:0 0 17px}.about-content .button{display:inline-flex;margin-top:12px}@media(max-width:700px){.about-us{margin:45px auto;padding:0 16px}.about-content{padding:24px 20px 28px}.about-image img{min-height:220px;object-fit:cover}}
+
+/* Aparte Wie zijn wij-pagina: laat de volledige illustratie zien */
+.about-standalone{margin-top:48px;margin-bottom:70px;}
+.about-standalone .about-image{border-radius:20px 20px 0 0;overflow:visible;}
+.about-standalone .about-image img{display:block;width:100%;height:auto;max-height:none;min-height:0;object-fit:contain;object-position:center;}
+.about-standalone .about-content{border-radius:0 0 20px 20px;}
+.topbar nav a[aria-current="page"]{color:#ff5900;}
+@media(max-width:700px){.about-standalone{margin-top:20px;margin-bottom:40px}.about-standalone .about-image img{width:100%;height:auto;min-height:0;max-height:none;object-fit:contain;}}
