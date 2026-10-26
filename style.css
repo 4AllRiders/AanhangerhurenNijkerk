@@ -21,3 +21,13 @@ html{scroll-padding-top:25px}button:focus-visible,a:focus-visible,input:focus-vi
 
 /* Aparte pagina Werkwijze & voorwaarden */
 .terms-page{max-width:1120px;margin:0 auto;padding:65px 22px 100px}.terms-intro{max-width:850px}.terms-intro h1{font-size:clamp(2.1rem,5vw,3.8rem);margin:10px 0 12px}.terms-intro .tagline{margin-bottom:20px}.terms-warning{border-left:5px solid #f18a18;background:#252525;padding:18px 22px;border-radius:8px;margin:28px 0 42px;color:#fff}.terms-warning p{margin:8px 0 0}.terms-body h2{font-size:clamp(1.6rem,3vw,2.3rem);margin:38px 0 20px}.terms-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.terms-steps article,.terms-articles article{background:#202020;border:1px solid #424242;border-radius:12px;padding:22px}.terms-steps b{color:#ff981c;font-size:1.35rem}.terms-steps h3,.terms-articles h3{margin:9px 0 10px}.terms-steps p,.terms-articles p{line-height:1.7;margin:0}.terms-articles{display:grid;gap:14px}.terms-articles a{color:#ff981c}.terms-disclaimer{font-size:.92rem;line-height:1.6;margin:26px 0}.terms-consent{display:flex;align-items:flex-start;gap:10px;margin:15px 0;line-height:1.5;font-size:.92rem}.terms-consent input{width:19px;height:19px;min-width:19px;margin-top:3px;accent-color:#f18a18}.terms-consent a{color:#e98513;text-decoration:underline}@media(max-width:640px){.terms-page{padding:35px 18px 90px}.terms-steps{grid-template-columns:1fr}.terms-steps article,.terms-articles article{padding:18px}}
+
+/* Leesbaarheid voorwaarden: witte tekst op donkere kaarten, ook bij algemene tekstregels */
+.terms-page .terms-steps article,
+.terms-page .terms-articles article { color:#f7f8fa; }
+.terms-page .terms-steps article h3,
+.terms-page .terms-articles article h3 { color:#ffffff; }
+.terms-page .terms-steps article p,
+.terms-page .terms-articles article p { color:#e1e5e9; }
+.terms-page .terms-steps article b { color:#ff981c; }
+.terms-page .terms-articles article a { color:#ffb45e; text-decoration:underline; }
