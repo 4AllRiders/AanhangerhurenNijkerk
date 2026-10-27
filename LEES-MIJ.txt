@@ -1,1 +1,0 @@
-Upload naar de hoofdmap van GitHub: index.html, style.css, script.js, hero.webp en hero-mobile.webp. Laat alle andere bestanden staan. Dit optimaliseert de mobiele hero en voorkomt renderblokkerende externe lettertypes en CSS op de homepage. De score kan per Lighthouse-meting verschillen.
