@@ -98,7 +98,7 @@
   }
   photos.forEach((src,i)=>{
     const btn=document.createElement('button');btn.type='button';btn.setAttribute('aria-label',`Bekijk foto ${i+1}`);
-    const img=document.createElement('img');img.src=src;img.alt=`Miniatuur foto ${i+1}`;img.loading='lazy';img.decoding='async';
+    const img=document.createElement('img');img.src=`thumb-${pad(i+1)}.webp`;img.alt=`Miniatuur foto ${i+1}`;img.loading='lazy';img.decoding='async';
     btn.append(img);btn.addEventListener('click',()=>show(i));thumbs.append(btn);
   });
   if(back)back.addEventListener('click',()=>show(index-1));
