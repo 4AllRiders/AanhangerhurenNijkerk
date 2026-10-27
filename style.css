@@ -119,3 +119,7 @@ html{scroll-padding-top:25px}button:focus-visible,a:focus-visible,input:focus-vi
 #request .terms-consent + .terms-consent{margin-top:-3px}
 #request .terms-consent + .send{margin-top:2px}
 @media(max-width:480px){#request .terms-consent{gap:9px;padding:9px 10px;font-size:12px}#request .terms-consent .consent-icon{flex-basis:26px;width:26px;height:26px;font-size:16px}}
+
+/* Akkoordregels zonder decoratieve iconen */
+#request .terms-consent{gap:12px}
+#request .terms-consent .consent-icon{display:none}
