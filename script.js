@@ -103,10 +103,20 @@
   });
   if(back)back.addEventListener('click',()=>show(index-1));
   if(forward)forward.addEventListener('click',()=>show(index+1));
+  const mobileView=window.matchMedia('(max-width:700px)');
+  function stopMobilePlayback(){
+    if(mobileView.matches && timer){
+      clearInterval(timer);timer=null;
+      if(play){play.textContent='▶ Automatisch afspelen';play.setAttribute('aria-pressed','false');}
+    }
+  }
   if(play)play.addEventListener('click',()=>{
-    if(timer){clearInterval(timer);timer=null;play.textContent='▶ Automatisch afspelen';}
-    else{timer=setInterval(()=>show(index+1),4500);play.textContent='❚❚ Pauzeren';}
+    if(mobileView.matches)return; // Alleen desktop mag automatisch afspelen.
+    if(timer){clearInterval(timer);timer=null;play.textContent='▶ Automatisch afspelen';play.setAttribute('aria-pressed','false');}
+    else{timer=setInterval(()=>show(index+1),4500);play.textContent='❚❚ Pauzeren';play.setAttribute('aria-pressed','true');}
   });
+  mobileView.addEventListener('change',stopMobilePlayback);
+  stopMobilePlayback();
   let touchX=null;
   image.addEventListener('touchstart',e=>{touchX=e.changedTouches[0].clientX;},{passive:true});
   image.addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>45)show(index+(dx<0?1:-1));touchX=null;},{passive:true});
