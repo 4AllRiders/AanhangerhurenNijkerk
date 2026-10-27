@@ -98,3 +98,13 @@ html{scroll-padding-top:25px}button:focus-visible,a:focus-visible,input:focus-vi
 #request .price-estimate-total strong{font-size:21px;color:#e95100;white-space:nowrap}
 #request .price-estimate-note{font-size:11px;color:#59646d;line-height:1.45;margin:2px 0 0}
 @media(max-width:400px){#request .price-estimate{padding:12px}#request .price-estimate-total strong{font-size:19px}}
+
+/* Compacte toestemmingskaarten in de bestaande witte huisstijl */
+#request .terms-consent{display:flex;align-items:center;gap:13px;margin:0;padding:14px 15px;border:1px solid #e2e5e9;border-radius:12px;background:#f8f9fa;line-height:1.5;font-size:13px;font-weight:500;cursor:pointer;min-width:0;box-shadow:0 1px 3px rgba(16,24,32,.035)}
+#request .terms-consent:focus-within{outline:2px solid #ff5900;outline-offset:2px}
+#request .terms-consent input[type=checkbox]{appearance:auto;flex:0 0 20px;width:20px;height:20px;min-width:20px;margin:0;padding:0;accent-color:#ff5900;cursor:pointer}
+#request .terms-consent .consent-icon{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;border-radius:9px;background:#fff0e7;color:#f35b0a;font-size:21px;font-weight:800}
+#request .terms-consent .consent-text{display:block;min-width:0;flex:1;overflow-wrap:break-word}
+#request .terms-consent a{color:#d95400;text-decoration:underline;text-underline-offset:2px;font-weight:800}
+#request .terms-consent strong{font-weight:800}
+@media(max-width:480px){#request .terms-consent{gap:10px;padding:12px 11px;font-size:12px}#request .terms-consent .consent-icon{flex-basis:30px;width:30px;height:30px;font-size:18px}}
