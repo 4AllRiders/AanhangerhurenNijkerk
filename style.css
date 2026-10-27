@@ -108,3 +108,14 @@ html{scroll-padding-top:25px}button:focus-visible,a:focus-visible,input:focus-vi
 #request .terms-consent a{color:#d95400;text-decoration:underline;text-underline-offset:2px;font-weight:800}
 #request .terms-consent strong{font-weight:800}
 @media(max-width:480px){#request .terms-consent{gap:10px;padding:12px 11px;font-size:12px}#request .terms-consent .consent-icon{flex-basis:30px;width:30px;height:30px;font-size:18px}}
+
+/* Compact akkoordgedeelte: minder witruimte, geen dubbele uitleg */
+#request{row-gap:11px}
+#request > p.note{margin:0 0 2px;line-height:1.45}
+#request .terms-consent{gap:10px;padding:10px 12px;border-radius:10px;line-height:1.4;font-size:12.5px;box-shadow:none}
+#request .terms-consent input[type=checkbox]{flex-basis:18px;width:18px;height:18px;min-width:18px}
+#request .terms-consent .consent-icon{flex:0 0 28px;width:28px;height:28px;border-radius:7px;font-size:17px}
+#request .terms-consent .consent-text{line-height:1.4}
+#request .terms-consent + .terms-consent{margin-top:-3px}
+#request .terms-consent + .send{margin-top:2px}
+@media(max-width:480px){#request .terms-consent{gap:9px;padding:9px 10px;font-size:12px}#request .terms-consent .consent-icon{flex-basis:26px;width:26px;height:26px;font-size:16px}}
