@@ -58,3 +58,18 @@ html{scroll-padding-top:25px}button:focus-visible,a:focus-visible,input:focus-vi
  .mobile-nav[open] .menu-toggle{background:#ff5900;border-color:#ff5900}
 }
 @media(max-width:390px){.mobile-nav .menu-label{display:none}.mobile-nav .menu-toggle{padding:0 9px}}
+
+
+/* Navigatie: horizontaal op laptop, uitklapbaar op mobiel. */
+@media (min-width:1051px) {
+  .topbar .mobile-nav {display:contents !important;}
+  .topbar .mobile-nav > summary.menu-toggle {display:none !important;}
+  .topbar .mobile-nav nav#hoofdmenu {display:flex !important;position:static !important;flex-direction:row !important;align-items:center;gap:clamp(10px,1.2vw,24px);background:transparent !important;box-shadow:none !important;padding:0 !important;max-height:none !important;overflow:visible !important;}
+  .topbar .mobile-nav nav#hoofdmenu a {white-space:nowrap;}
+}
+@media (max-width:1050px) {
+  .topbar .mobile-nav {display:block !important;}
+  .topbar .mobile-nav > summary.menu-toggle {display:flex !important;}
+  .topbar .mobile-nav:not([open]) nav#hoofdmenu {display:none !important;}
+  .topbar .mobile-nav[open] nav#hoofdmenu {display:flex !important;flex-direction:column !important;}
+}
