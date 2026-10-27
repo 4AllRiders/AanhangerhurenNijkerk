@@ -30,7 +30,7 @@
         btn.addEventListener('click',()=>{
           if(!selectedStart||selectedEnd||date<selectedStart){selectedStart=date;selectedEnd='';}
           else selectedEnd=date;
-          start.value=selectedStart;end.value=selectedEnd||selectedStart;render();
+          start.value=selectedStart;end.value=selectedEnd||selectedStart;render();updatePrice();
         });days.append(btn);
       }
     }
@@ -38,6 +38,41 @@
     next.addEventListener('click',()=>{cursor=new Date(cursor.getFullYear(),cursor.getMonth()+1,1);render();});
     const sync=()=>{selectedStart=start.value;selectedEnd=end.value;render();};
     start.addEventListener('change',sync);end.addEventListener('change',sync);
+    // Inclusieve kalenderdagen. Week = 7 opeenvolgende dagen (€149).
+    // Weekend = zaterdag + zondag samen (€59); overige dagen €39.
+    // Kies de goedkoopste geldige combinatie, zonder dubbeltelling.
+    const euro = amount => new Intl.NumberFormat('nl-NL', {style:'currency', currency:'EUR'}).format(amount);
+    function rentalPrice(from, to) {
+      if (!from || !to || to < from) return null;
+      const a = new Date(from + 'T12:00:00');
+      const b = new Date(to + 'T12:00:00');
+      const n = Math.round((b - a) / 86400000) + 1;
+      if (n < 1 || n > 3660) return null;
+      const dp = Array(n + 1).fill(Infinity);
+      dp[n] = 0;
+      for (let i = n - 1; i >= 0; i--) {
+        const day = new Date(a.getFullYear(), a.getMonth(), a.getDate() + i, 12).getDay();
+        dp[i] = 39 + dp[i + 1];
+        if (day === 6 && i + 1 < n) dp[i] = Math.min(dp[i], 59 + dp[i + 2]);
+        if (i + 7 <= n) dp[i] = Math.min(dp[i], 149 + dp[i + 7]);
+      }
+      return {days:n, rent:dp[0]};
+    }
+    function updatePrice() {
+      const result = rentalPrice(start.value, end.value);
+      const period = document.getElementById('price-period');
+      const rental = document.getElementById('price-rental');
+      const total = document.getElementById('price-total');
+      if (!period || !rental || !total) return;
+      period.textContent = result ? `${result.days} ${result.days === 1 ? 'dag' : 'dagen'}` : 'Kies je datums';
+      rental.textContent = result ? euro(result.rent) : '—';
+      total.textContent = result ? euro(result.rent + 100) : '—';
+    }
+    start.addEventListener('input', updatePrice);
+    end.addEventListener('input', updatePrice);
+    start.addEventListener('change', updatePrice);
+    end.addEventListener('change', updatePrice);
+    updatePrice();
     const form=document.getElementById('request');
     if(form)form.addEventListener('submit',e=>{
       const feedback=document.getElementById('feedback');
